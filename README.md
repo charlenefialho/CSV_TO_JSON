@@ -24,9 +24,9 @@ and also install node [node.js](https://nodejs.org/en).
 ### Next Step:
 ```bash
 ## clone this repository
-$ git clone https://github.com/charlenefialho/ConvertBinaryToDecimal
+$ git clone https://github.com/charlenefialho/CSV_TO_JSON
 ## access the project
-$ cd ConvertBinaryToDecimal
+$ cd CSV_TO_JSON
 ## Then run the project using the vsCode live server extension
 
 
