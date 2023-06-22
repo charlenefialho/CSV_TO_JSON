@@ -10,7 +10,6 @@
 
 .area-file-input{
     width: 100%;
-    height: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,3 +40,4 @@
     font-family: 'Courier New', Courier, monospace;
     
 }
+
