@@ -4,21 +4,18 @@ const outputJson = document.querySelector("#output-json");
 inputFile.addEventListener('change', readCsvFile);
 
 function convertCsvToJson(lines, header) {
-  const data = [];
-  for (let i = 1; i < lines.length - 1; i++) {
-    const columns = lines[i].split(',');
-    const obj = {};
+  const data = lines.slice(1, -1).map(line => {
+    const columns = line.split(',');
+    return header.reduce((object, columnName, index) => {
+      object[columnName] = columns[index];
+      return object;
+    }, {});
+  });
 
-    for (let j = 0; j < header.length; j++) {
-      obj[header[j]] = columns[j];
-    }
-
-    data.push(obj);
-  }
   outputJson.innerText = JSON.stringify(data);
-
-    downloadJsonFile(createDownloadLink(JSON.stringify(data)));
+  downloadJsonFile(createDownloadLink(JSON.stringify(data)));
 }
+
 
 
 function readCsvFile(event){
