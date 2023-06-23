@@ -17,7 +17,7 @@ function convertCsvToJson(lines, header) {
 }
 
 
-
+//converter mais de um arquivo, separar responsabilidades, 
 function readCsvFile(event){
   const file = event.target.files[0];
   if (!file) {
@@ -32,14 +32,14 @@ function readCsvFile(event){
     return;
   }
 
-  
-
+  //mudar lines para row,separar as responsabilidades
   const reader = new FileReader();
   reader.onload = function(e) {
     const content = e.target.result;
     const lines = content.split('\n');
     const header = lines[0].split(',');
 
+    //lógica errada,colocar 0 em uma variável mágica
     if (lines.length < 2 || header.length < 2) {
       alert("O arquivo CSV está vazio ou não contém dados suficientes.");
       return;
@@ -56,6 +56,7 @@ function downloadJsonFile(linkDownload){
   linkDownload.dispatchEvent(new MouseEvent('click'));
 }
 
+//fs - fileSystem(node.js)
 function createDownloadLink(jsonData){
   const blob = new Blob([jsonData], { type: 'application/json' });
 
