@@ -24,8 +24,6 @@ function convertCsvToJson(event) {
 
       data.push(obj);
     }
-
-    console.log(data);
     outputJson.innerHTML = JSON.stringify(data);
 
     const jsonData = JSON.stringify(data);
