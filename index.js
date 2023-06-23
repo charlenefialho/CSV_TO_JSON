@@ -20,12 +20,30 @@ function convertCsvToJson(lines, header) {
 
 function readCsvFile(event){
   const file = event.target.files[0];
+  if (!file) {
+    alert("Selecione um arquivo.");
+    return;
+  }
+
+  const fileNameParts = file.name.split('.');
+  const fileExtension = fileNameParts[fileNameParts.length - 1].toLowerCase();
+  if (fileExtension !== 'csv') {
+    alert("O arquivo selecionado não é um arquivo CSV.");
+    return;
+  }
+
+  
 
   const reader = new FileReader();
   reader.onload = function(e) {
     const content = e.target.result;
     const lines = content.split('\n');
     const header = lines[0].split(',');
+
+    if (lines.length < 2 || header.length < 2) {
+      alert("O arquivo CSV está vazio ou não contém dados suficientes.");
+      return;
+    }
 
     convertCsvToJson(lines, header);
   };
