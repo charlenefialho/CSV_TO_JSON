@@ -1,5 +1,5 @@
-const inputFile = document.querySelector("#inputFile");
-const outputJson = document.querySelector("#outputJson");
+const inputFile = document.querySelector("#input-file");
+const outputJson = document.querySelector("#output-json");
 
 inputFile.addEventListener('change', convertCsvToJson);
 
